@@ -9,12 +9,14 @@ package net.ictcampus.voektm.rapp;
         import android.hardware.SensorEvent;
         import android.hardware.SensorEventListener;
         import android.hardware.SensorManager;
+        import android.provider.ContactsContract;
         import android.support.annotation.NonNull;
         import android.support.v7.app.AppCompatActivity;
         import android.os.Bundle;
         import android.util.TypedValue;
         import android.view.View;
         import android.widget.EditText;
+        import android.widget.ImageView;
         import android.widget.TextView;
 
         import org.w3c.dom.Text;
@@ -35,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         super.onCreate(savedInstanceState);
         setTheme(themes[listPos]);
         setContentView(R.layout.activity_main);
-        View v = findViewById(R.id.logoView);
+         ImageView v = findViewById(R.id.logoView);
         textView = findViewById(R.id.textView);
 
         TypedValue typedValue = new TypedValue();
