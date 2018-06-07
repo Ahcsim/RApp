@@ -11,4 +11,5 @@
     <color name="foreground_material_dark">#20ef00</color>
     <color name="green">#76FF03</color>
     <color name="test">#f40000</color>
+    <color name="blue">#303F9F</color>
 </resources>
