@@ -32,21 +32,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ServiceConfigurationError;
 
-public class MainActivity extends AppCompatActivity implements SensorEventListener {
+public class MainActivity extends LightSensitivActivity{
     private GridView gridView;
     private GridViewAdapter gridAdapter;
     TextView textView;
-    SensorManager sensorManager;
-    Sensor sensor;
-    private int[] themes = {R.style.RApp_Light, R.style.RApp};
-    private static int listPos = 0;
     private String[] namesofrappers = {"Azet","Capital Bra","Farid Bang","Dardan","Kollegah","Kontra K","Miami Yacine","Raf Camora","187","UFO361","Zuna","Luciano","18 Karat","Bushido","Capo","Eno"};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Activity mActivity = this;
         super.onCreate(savedInstanceState);
-        setTheme(themes[listPos]);
         setContentView(R.layout.activity_main);
         ImageView v = findViewById(R.id.logoView);
         textView = findViewById(R.id.textView);
@@ -69,11 +65,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         TypedValue typedValue = new TypedValue();
         mActivity.getTheme().resolveAttribute(R.attr.colorPrimary, typedValue, true);
         int primaryColor = typedValue.data;
-        v.setBackgroundColor(primaryColor);
         gridView.setBackgroundColor(primaryColor);
-
-        sensorManager = (SensorManager) getSystemService(Service.SENSOR_SERVICE);
-        sensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
 
     }
 
@@ -90,42 +82,13 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     @Override
     protected void onResume() {
         super.onResume();
-        sensorManager.registerListener(this, sensor, SensorManager.SENSOR_DELAY_FASTEST);
-    }
+}
 
 
     @Override
     protected void onPause() {
         super.onPause();
-        sensorManager.unregisterListener(this);
     }
 
-    @Override
-    public void onSensorChanged(SensorEvent event) {
-        if (event.sensor.getType() == Sensor.TYPE_LIGHT) {
-            textView.setText("" + event.values[0]);
-            if (event.values[0] <= 100) {
-                if (listPos != 1) {
-                    listPos = 1;
-                    Intent intent = getIntent();
-                    finish();
-                    overridePendingTransition(0, 0);
-                    startActivity(intent);
-                }
-            } else if (event.values[0] > 120) {
-                if (listPos != 0) {
-                    listPos = 0;
-                    Intent intent = getIntent();
-                    finish();
-                    overridePendingTransition(0, 0);
-                    startActivity(intent);
-                }
-            }
-        }
-    }
 
-    @Override
-    public void onAccuracyChanged(Sensor sensor, int accuracy) {
-
-    }
 }

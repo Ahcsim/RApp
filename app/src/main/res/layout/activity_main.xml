@@ -11,6 +11,11 @@
     android:elevation="5dp"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:id="@+id/logoView"
+        style="@style/AppTheme"
+        android:layout_width="match_parent"
+        android:layout_height="102dp"/>
 
     <GridView
         android:id="@+id/gridView"
@@ -29,19 +34,19 @@
         android:verticalSpacing="5dp" />
 
     <ImageView
-        android:id="@+id/logoView"
+        android:id="@+id/logo"
         android:layout_width="116dp"
         android:layout_height="59dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="17dp"
+        android:layout_marginBottom="16dp"
+        android:elevation="11dp"
         android:src="@drawable/rapp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        android:elevation="11dp"/>
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/textView"
