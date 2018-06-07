@@ -50,14 +50,20 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         setContentView(R.layout.activity_main);
         ImageView v = findViewById(R.id.logoView);
         textView = findViewById(R.id.textView);
-
+        TextView auswahl = findViewById(R.id.txtAuswahl);
+        auswahl.setText("Wählen sie mindestens 3 Rapper aus");
         gridView = (GridView) findViewById(R.id.gridView);
         gridAdapter = new GridViewAdapter(this, R.layout.grid_item_layout, getData());
         gridView.setAdapter(gridAdapter);
 
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-
+                ImageItem item = (ImageItem) parent.getItemAtPosition(position);
+                if(item.getClicked()){
+                    item.setUnclicked();
+                }else{
+                    item.setClicked();
+                }
             }
         });
         TypedValue typedValue = new TypedValue();
