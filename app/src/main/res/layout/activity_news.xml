@@ -90,6 +90,7 @@ tools:context=".MainActivity">
         android:layout_alignTop="@+id/imageView4"
         android:layout_marginStart="130dp"
         android:clickable="true"
+        android:onClick="onClick"
         android:tint="?android:attr/colorForeground"
         app:srcCompat="@android:drawable/ic_media_play"
         tools:layout_editor_absoluteX="255dp"

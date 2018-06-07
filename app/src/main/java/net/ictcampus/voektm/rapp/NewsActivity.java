@@ -35,15 +35,9 @@ public class NewsActivity extends LightSensitivActivity{
         mActivity.getTheme().resolveAttribute(R.attr.colorPrimary, typedValue, true);
         int primaryColor = typedValue.data;
         v.setBackgroundColor(primaryColor);
-        ImageView img = findViewById(R.id.abo);
-        img.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                // your code here
-            }
-        });
     }
-    private void aboClick(){
-
+    public void onClick(View v) {
+        Intent intent = new Intent(this, Main2Activity.class);
+        startActivity(intent);
     }
-
 }
