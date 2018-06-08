@@ -1,8 +1,8 @@
 package net.ictcampus.voektm.rapp;
 
-
-
 import android.content.Intent;
+
+import android.support.design.widget.BottomNavigationView;
 import android.os.Bundle;
 
 import android.support.design.widget.BottomNavigationView;

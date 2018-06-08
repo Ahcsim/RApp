@@ -21,6 +21,7 @@ import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
@@ -36,7 +37,8 @@ public class MainActivity extends LightSensitivActivity{
     private GridView gridView;
     private GridViewAdapter gridAdapter;
     TextView textView;
-    private String[] namesofrappers = {"Azet","Capital Bra","Farid Bang","Dardan","Kollegah","Kontra K","Miami Yacine","Raf Camora","187","UFO361","Zuna","Luciano","18 Karat","Bushido","Capo","Eno"};
+    Button btnFertig;
+    private String[] namesofrappers = {"Azet","Capital Bra","Farid Bang","Dardan","Kollegah","Kontra K","Miami Yacine","Raf Camora","187","UFO361","Zuna","Luciano","18 Karat","Bushido","Capo","Eno","Class X","Nimo"};
 
 
     @Override
@@ -46,11 +48,20 @@ public class MainActivity extends LightSensitivActivity{
         setContentView(R.layout.activity_main);
         ImageView v = findViewById(R.id.logoView);
         textView = findViewById(R.id.textView);
+        btnFertig = (Button) findViewById(R.id.btnFertig);
+
         TextView auswahl = findViewById(R.id.txtAuswahl);
         auswahl.setText("Wählen sie mindestens 3 Rapper aus");
         gridView = (GridView) findViewById(R.id.gridView);
         gridAdapter = new GridViewAdapter(this, R.layout.grid_item_layout, getData());
         gridView.setAdapter(gridAdapter);
+
+        btnFertig.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fertig_click();
+            }
+        });
 
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
@@ -66,6 +77,7 @@ public class MainActivity extends LightSensitivActivity{
         mActivity.getTheme().resolveAttribute(R.attr.colorPrimary, typedValue, true);
         int primaryColor = typedValue.data;
         gridView.setBackgroundColor(primaryColor);
+        auswahl.setBackgroundColor(primaryColor);
 
     }
 
@@ -79,16 +91,24 @@ public class MainActivity extends LightSensitivActivity{
         return imageItems;
     }
 
+    private void fertig_click(){
+        Intent startMain = new Intent(this, NewsActivity.class);
+        startActivity(startMain);
+    }
+
     @Override
-    protected void onResume() {
+    protected void onResume()
+    {
         super.onResume();
-}
+    }
 
 
     @Override
-    protected void onPause() {
+    protected void onPause()
+    {
         super.onPause();
     }
+
 
 
 }
