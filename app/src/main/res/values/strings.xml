@@ -24,5 +24,7 @@
         <item>@drawable/image_14</item>
         <item>@drawable/image_15</item>
         <item>@drawable/image_16</item>
+        <item>@drawable/image_17</item>
+        <item>@drawable/image_18</item>
     </string-array>
 </resources>
