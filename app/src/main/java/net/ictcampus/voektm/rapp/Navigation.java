@@ -32,6 +32,7 @@ public class Navigation extends LightSensitivActivity {
                 case R.id.search:
                     Intent intent4=new Intent(mActivity,SearchActivity.class);
                     startActivity(intent4);
+
                     return true;
             }
             return false;
