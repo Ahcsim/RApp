@@ -46,8 +46,6 @@ public class MainActivity extends LightSensitivActivity{
         Activity mActivity = this;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ImageView v = findViewById(R.id.logoView);
-        textView = findViewById(R.id.textView);
         btnFertig = (Button) findViewById(R.id.btnFertig);
 
         TextView auswahl = findViewById(R.id.txtAuswahl);
