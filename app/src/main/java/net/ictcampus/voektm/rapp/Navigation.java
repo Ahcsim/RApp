@@ -20,19 +20,22 @@ public class Navigation extends LightSensitivActivity {
                 case R.id.play:
                     Intent intent=new Intent(mActivity,AbosActivity.class);
                     startActivity(intent);
+                    overridePendingTransition(0, 0);
                     return true;
                 case R.id.news:
                     Intent intent2=new Intent(mActivity,NewsActivity.class);
                     startActivity(intent2);
+                    overridePendingTransition(0, 0);
                     return true;
                 case R.id.favorites:
                     Intent intent3=new Intent(mActivity,FavoritenActivity.class);
                     startActivity(intent3);
+                    overridePendingTransition(0, 0);
                     return true;
                 case R.id.search:
                     Intent intent4=new Intent(mActivity,SearchActivity.class);
                     startActivity(intent4);
-
+                    overridePendingTransition(0, 0);
                     return true;
             }
             return false;

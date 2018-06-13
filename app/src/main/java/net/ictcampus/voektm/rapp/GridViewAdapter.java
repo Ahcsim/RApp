@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,7 @@ public class GridViewAdapter extends ArrayAdapter<ImageItem> {
     private Context context;
     private int layoutResourceId;
     private ArrayList<ImageItem> data = new ArrayList<ImageItem>();
+    public ArrayList<String> listChecked = new ArrayList<String>();
 
     public GridViewAdapter(Context context, int layoutResourceId, ArrayList<ImageItem> data) {
         super(context, layoutResourceId, data);
@@ -39,13 +41,24 @@ public class GridViewAdapter extends ArrayAdapter<ImageItem> {
             holder = (ViewHolder) row.getTag();
         }
         ImageItem item = data.get(position);
+
         holder.imageTitle.setText(item.getTitle());
         holder.image.setImageBitmap(item.getImage());
+        holder.imageTitle.setBackgroundColor(Color.TRANSPARENT);
+        for(String s:listChecked){
+            if(holder.imageTitle.getText().equals(s)){
+                holder.imageTitle.setBackgroundColor(Color.RED);
+            }
+        }
         return row;
     }
 
     static class ViewHolder {
         TextView imageTitle;
         ImageView image;
+    }
+
+    public  void setdata(ArrayList<ImageItem> list){
+        data = list;
     }
 }

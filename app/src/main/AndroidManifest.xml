@@ -29,8 +29,8 @@
         <activity android:name=".AbosActivity" />
         <activity android:name=".TestActivity"></activity>
         <activity android:name=".FavoritenActivity" />
-        <activity android:name=".SearchActivity"></activity>
-
+        <activity android:name=".SearchActivity" />
+        <activity android:name=".Settings"></activity>
     </application>
 
 </manifest>
