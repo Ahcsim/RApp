@@ -18,17 +18,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
         <activity android:name=".NewsActivity" />
-=======
-        <activity android:name=".MainActivity" />
         <activity
             android:name=".Main3Activity"
             android:label="@string/title_activity_main3" />
         <activity android:name=".AbosActivity" />
         <activity android:name=".FavoritenActivity" />
-        <activity android:name=".SearchActivity"></activity>
->>>>>>> c753d7f8c6fdd6cae1ab85c80161e177001fd2cc
+        <activity android:name=".SearchActivity" />
+        <activity android:name=".Settings"></activity>
     </application>
 
 </manifest>
