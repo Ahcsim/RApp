@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".TheMain"
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,15 +22,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".NewsActivity" />
         <activity
             android:name=".Main3Activity"
             android:label="@string/title_activity_main3" />
-        <activity android:name=".AbosActivity" />
-        <activity android:name=".TestActivity"></activity>
-        <activity android:name=".FavoritenActivity" />
-        <activity android:name=".SearchActivity" />
-        <activity android:name=".Settings"></activity>
+        <activity android:name=".TestActivity" />
+
+        <activity android:name=".Settings" />
     </application>
 
 </manifest>
