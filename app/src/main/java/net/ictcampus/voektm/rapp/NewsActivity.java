@@ -9,13 +9,24 @@ import android.support.design.widget.BottomNavigationView;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.Toast;
 
 
 public class NewsActivity extends Navigation {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //MainActivity nur ein mal anzeigen
+        Boolean isFirstRun = getSharedPreferences("PREFERENCE", MODE_PRIVATE)
+                .getBoolean("isFirstRun", true);
+        if (isFirstRun) {
+            //show auswahl activity
+            startActivity(new Intent(NewsActivity.this, MainActivity.class));
+        }
+        getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit()
+                .putBoolean("isFirstRun", false).commit();
         super.onCreate(savedInstanceState);
+
 
         setContentView(R.layout.activity_news);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);

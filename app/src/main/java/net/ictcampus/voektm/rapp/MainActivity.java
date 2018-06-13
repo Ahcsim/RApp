@@ -16,6 +16,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.media.Image;
 import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
@@ -84,7 +85,7 @@ public class MainActivity extends LightSensitivActivity{
                 String rapper =  item.getTitle();
                 if(item.getClicked()){
                     item.setUnclicked();
-                    gridAdapter.listChecked.remove(rapper);
+                    gridAdapter.listChecked.remove(item);
                     gridAdapter.notifyDataSetChanged();
                     db.delete(
                             "rapp",
@@ -100,7 +101,7 @@ public class MainActivity extends LightSensitivActivity{
                     ContentValues werte = new ContentValues();
                     werte.put("Name", rapper);
 
-                    gridAdapter.listChecked.add(rapper);
+                    gridAdapter.listChecked.add(item);
                     gridAdapter.notifyDataSetChanged();
 
 

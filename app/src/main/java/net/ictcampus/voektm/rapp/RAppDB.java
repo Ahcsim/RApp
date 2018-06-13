@@ -24,7 +24,7 @@ public class RAppDB extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE rapp (_id INTEGER PRIMARY KEY , Name TEXT)");
+        db.execSQL("CREATE TABLE rapp (_id INTEGER PRIMARY KEY , Name TEXT, Bild )");
     }
 
     public void insertdb(SQLiteDatabase db, String insertvalue){
