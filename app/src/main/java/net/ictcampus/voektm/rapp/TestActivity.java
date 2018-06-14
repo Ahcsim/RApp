@@ -22,7 +22,7 @@ public class TestActivity extends LightSensitivActivity {
         super.onResume();
         String sq = ("Capital Bra");
         Search search = new Search();
-        List<SearchResult> lr = search.searchByString(sq,10);
+        List<SearchResult> lr = search.searchByString(sq,1);
         ArrayList<VideoEntry> vE = new ArrayList<VideoEntry>();
         for (SearchResult result : lr) {
             SearchResultSnippet s = result.getSnippet();
