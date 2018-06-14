@@ -12,6 +12,4 @@
         android:text="favoriten"
         tools:layout_editor_absoluteX="89dp"
         tools:layout_editor_absoluteY="145dp" />
-
-
 </FrameLayout>

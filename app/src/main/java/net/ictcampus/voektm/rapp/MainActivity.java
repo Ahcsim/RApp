@@ -36,6 +36,7 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ServiceConfigurationError;
@@ -84,11 +85,17 @@ public class MainActivity extends LightSensitivActivity{
         Cursor c = db.rawQuery(sqlRapper,null);
         while (c.moveToNext()){
             gridAdapter.listChecked.add(c.getString(1));
+            for(ImageItem i: data){
+                if(i.getTitle().equals(c.getString(1))){
+                    i.setClicked();
+                }
+            }
         }
         gridView.setAdapter(gridAdapter);
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
                 ImageItem item = (ImageItem) parent.getItemAtPosition(position); //gedrücktes Item
+                Log.e("CLicked?", ""+item.getClicked());
                 String rapper =  item.getTitle();
                 String idChannel = item.getIdChannel();
                 if(item.getClicked()){
@@ -103,12 +110,12 @@ public class MainActivity extends LightSensitivActivity{
                             );
                 }else{
                     item.setClicked();
+                    gridAdapter.listChecked.add(rapper);
+                    gridAdapter.notifyDataSetChanged();
                     //setzt geklickter rapper in die DB und lädt Grid neu
                     ContentValues werte = new ContentValues();
                     werte.put("Name", rapper);
                     werte.put("idChannel", idChannel);
-                    gridAdapter.listChecked.add(rapper);
-                    gridAdapter.notifyDataSetChanged();
                     db.insert(
                             "rapp",
                             null,
