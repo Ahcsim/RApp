@@ -65,7 +65,7 @@ public class MainActivity extends LightSensitivActivity{
 
         //Textview Titel
         TextView auswahl = findViewById(R.id.txtAuswahl);
-        auswahl.setText("Wählen Sie Ihre  Lieblingsapper aus");
+        auswahl.setText("Wählen Sie Ihre  Lieblingsrapper aus");
 
         //Button Fertig
         btnFertig = (Button) findViewById(R.id.btnFertig);
@@ -91,6 +91,7 @@ public class MainActivity extends LightSensitivActivity{
                 }
             }
         }
+        //GridView Initialisieren
         gridView.setAdapter(gridAdapter);
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
@@ -124,6 +125,7 @@ public class MainActivity extends LightSensitivActivity{
                 }
             }
         });
+        //setzt die Hintergrundfarbe der Box passend auf das Design
         TypedValue typedValue = new TypedValue();
         mActivity.getTheme().resolveAttribute(R.attr.colorPrimary, typedValue, true);
         int primaryColor = typedValue.data;
@@ -131,6 +133,7 @@ public class MainActivity extends LightSensitivActivity{
         auswahl.setBackgroundColor(primaryColor);
     }
 
+    //Gibt den Items ein Bild, ein Titel und eine ChannelID
     private ArrayList<ImageItem> getData() {
         final ArrayList<ImageItem> imageItems = new ArrayList<>();
         TypedArray imgs = getResources().obtainTypedArray(R.array.image_ids);
@@ -141,6 +144,7 @@ public class MainActivity extends LightSensitivActivity{
         return imageItems;
     }
 
+    //TheMain starten
     private void fertig_click(){
         Intent startMain = new Intent(this, TheMain.class);
         startActivity(startMain);
@@ -150,7 +154,7 @@ public class MainActivity extends LightSensitivActivity{
     protected void onResume()
     {
         super.onResume();
-        db = manager.getReadableDatabase();
+        db = manager.getReadableDatabase(); //Datenbank wieder öffnen
     }
 
 
@@ -158,7 +162,7 @@ public class MainActivity extends LightSensitivActivity{
     protected void onPause()
     {
         super.onPause();
-        db.close();
+        db.close(); //Datenbank schliessen
     }
 
 

@@ -56,10 +56,10 @@ public class Navigation extends LightSensitivActivity {
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         List<Fragment> listFragment = new ArrayList<>();
-        //&listFragment.add(new NewsActivity());
-        //listFragment.add(new AbosActivity());
+        listFragment.add(new NewsFragment());
+        listFragment.add(new AbosFragment());
         listFragment.add(new FavoritenActivity());
-        listFragment.add(new SearchActivity());
+        listFragment.add(new SearchFragment());
 
         List<String> listTitles = new ArrayList<>();
         listTitles.add("Fragment One");
