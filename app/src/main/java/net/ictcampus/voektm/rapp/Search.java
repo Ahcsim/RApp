@@ -20,6 +20,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Properties;
@@ -28,11 +29,13 @@ public class Search{
     private YouTube.Search.List search;
     private static final String API_KEY = "AIzaSyCQJb_d69w9cusXoYHdG0JQFE54iuxuui4";
     private List<SearchResult> searchResultList;
+    private ArrayList<String> channels;
+    private String channel="";
     public Search(){
 
     }
-    public List<SearchResult> searchByString(String searchString, long maxResults) {
-
+    public List<SearchResult> searchByString(String searchString, long maxResults,ArrayList<String> Channels) {
+        channels=Channels;
         YouTube youtube;
 
         try {
@@ -42,10 +45,14 @@ public class Search{
             }).setApplicationName("Videos").build();
 
             search = youtube.search().list("id,snippet");
-
+            Log.e("grösse", String.valueOf(channels.size()));
+            for(int i=0;i<channels.size();i++){
+                channel+=channels.get(i)+"|";
+            }
             search.setKey(API_KEY);
-            search.setQ(searchString);
-search.setChannelId("UCGU9EqK5V5m141sNPCOfRBg");
+            Log.e("asdhui",channel);
+            search.setQ(channel);
+            //search.setChannelId(channel);
             search.setType("video");
             search.setOrder("date");
             search.setFields("items(id/kind,id/videoId,snippet/title,snippet/thumbnails/default/url)");

@@ -3,6 +3,9 @@ package net.ictcampus.voektm.rapp;
 import android.app.Activity;
 import android.content.Intent;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.support.design.widget.BottomNavigationView;
 import android.os.Bundle;
 
@@ -36,6 +39,9 @@ public  class NewsActivity extends YoutubeFailureActivity{
     ArrayList<String> ids=new ArrayList<String>();
     String id;
     int pos=0;
+    SQLiteDatabase db;
+    SQLiteOpenHelper manager;
+    private ArrayList<String> channels=new ArrayList<String>();
     String view;
     public NewsActivity(){
     }
@@ -43,6 +49,8 @@ public  class NewsActivity extends YoutubeFailureActivity{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news);
+        manager = RAppDB.getInstance(this);
+        db = manager.getWritableDatabase();
         /*
     for(int i=0;i<10;i++){
         view="yt"+i;
@@ -100,9 +108,15 @@ public  class NewsActivity extends YoutubeFailureActivity{
     @Override
     public void onResume() {
         super.onResume();
-        String sq = ("Capital Bra");
+        String sq = ("");
         Search search = new Search();
-        List<SearchResult> lr = search.searchByString(sq, 11);
+        String sql = "Select * from rapp";
+        Cursor c = db.rawQuery(sql,null);
+        while (c.moveToNext()){
+            channels.add(c.getString(1));
+            Log.i("Test", c.getString(2));
+        }
+        List<SearchResult> lr = search.searchByString(sq, 11,channels);
         ArrayList<VideoEntry> vE = new ArrayList<VideoEntry>();
         for (SearchResult result : lr) {
             SearchResultSnippet s = result.getSnippet();

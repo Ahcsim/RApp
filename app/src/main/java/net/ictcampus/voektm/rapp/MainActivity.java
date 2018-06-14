@@ -135,7 +135,7 @@ public class MainActivity extends LightSensitivActivity{
     }
 
     private void fertig_click(){
-        Intent startMain = new Intent(this, NewsActivity.class);
+        Intent startMain = new Intent(this, TheMain.class);
         startActivity(startMain);
     }
 
