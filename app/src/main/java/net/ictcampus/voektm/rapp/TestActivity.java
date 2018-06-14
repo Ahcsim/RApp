@@ -1,4 +1,4 @@
-package net.ictcampus.voektm.rapp;
+/*package net.ictcampus.voektm.rapp;
 
 import android.os.Bundle;
 import android.view.View;
@@ -43,4 +43,4 @@ public class TestActivity extends LightSensitivActivity {
 
 
     }
-}
+}*/
