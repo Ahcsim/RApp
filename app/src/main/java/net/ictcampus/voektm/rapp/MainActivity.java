@@ -97,7 +97,6 @@ public class MainActivity extends LightSensitivActivity{
                     gridAdapter.listChecked.add(item);
                     gridAdapter.notifyDataSetChanged();
 
-
                     db.insert(
                             "rapp",
                             null,
@@ -106,7 +105,7 @@ public class MainActivity extends LightSensitivActivity{
                     String sql = "Select * from rapp";
                     Cursor c = db.rawQuery(sql,null);
                     while (c.moveToNext()){
-                        Log.i("Test", c.getString(1));
+                        Log.i("Test", c.getString(2));
                     }
                 }
             }
