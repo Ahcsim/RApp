@@ -2,6 +2,7 @@ package net.ictcampus.voektm.rapp;
 
 import android.content.Intent;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -23,10 +24,22 @@ public class TheMain extends Navigation {
                 .putBoolean("isFirstRun", false).commit();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_the_main);
+        FloatingActionButton btnSettings = findViewById(R.id.btnSettings);
+        btnSettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btnSettings_Click();
+            }
+        });
         viewPager = findViewById(R.id.viewPager);/*
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setSelectedItemId(R.id.news);*/
 
+
+    }
+    public void btnSettings_Click(){
+        Intent startSettings = new Intent(this, Settings.class);
+        startActivity(startSettings);
     }
 
 }

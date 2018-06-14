@@ -17,7 +17,7 @@ public class GridViewAdapter extends ArrayAdapter<ImageItem> {
     private Context context;
     private int layoutResourceId;
     private ArrayList<ImageItem> data = new ArrayList<ImageItem>();
-    public ArrayList<ImageItem> listChecked = new ArrayList<ImageItem>();
+    public static ArrayList<ImageItem> listChecked = new ArrayList<ImageItem>();
 
     public GridViewAdapter(Context context, int layoutResourceId, ArrayList<ImageItem> data) {
         super(context, layoutResourceId, data);

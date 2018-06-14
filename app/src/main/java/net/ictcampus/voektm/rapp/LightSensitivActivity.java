@@ -69,5 +69,9 @@ public class LightSensitivActivity extends AppCompatActivity implements SensorEv
         public void onAccuracyChanged(Sensor sensor, int accuracy) {
 
         }
+        public void setListPos(int pos){
+            listPos = pos;
+            sensorManager.unregisterListener(this);
+        }
 
 }
