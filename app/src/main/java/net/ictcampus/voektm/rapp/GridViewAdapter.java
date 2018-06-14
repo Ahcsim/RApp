@@ -17,7 +17,7 @@ public class GridViewAdapter extends ArrayAdapter<ImageItem> {
     private Context context;
     private int layoutResourceId;
     private ArrayList<ImageItem> data = new ArrayList<ImageItem>();
-    public static ArrayList<ImageItem> listChecked = new ArrayList<ImageItem>();
+    public ArrayList<String> listChecked = new ArrayList<String>();
 
     public GridViewAdapter(Context context, int layoutResourceId, ArrayList<ImageItem> data) {
         super(context, layoutResourceId, data);
@@ -45,8 +45,8 @@ public class GridViewAdapter extends ArrayAdapter<ImageItem> {
         holder.imageTitle.setText(item.getTitle());
         holder.image.setImageBitmap(item.getImage());
         holder.imageTitle.setBackgroundColor(Color.TRANSPARENT);
-        for(ImageItem i:listChecked){
-            if(holder.imageTitle.getText().equals(i.getTitle())){
+        for(String s:listChecked){
+            if(holder.imageTitle.getText().equals(s)){
                 holder.imageTitle.setBackgroundColor(Color.RED);
             }
         }

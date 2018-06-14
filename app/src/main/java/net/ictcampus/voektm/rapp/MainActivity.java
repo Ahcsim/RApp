@@ -79,16 +79,22 @@ public class MainActivity extends LightSensitivActivity{
         gridView = (GridView) findViewById(R.id.gridView);
         data = getData();
         gridAdapter = new GridViewAdapter(this, R.layout.grid_item_layout, data);
+        //Abos definieren
+        String sqlRapper = "Select * from rapp";
+        Cursor c = db.rawQuery(sqlRapper,null);
+        while (c.moveToNext()){
+            gridAdapter.listChecked.add(c.getString(1));
+        }
         gridView.setAdapter(gridAdapter);
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-
-                ImageItem item = (ImageItem) parent.getItemAtPosition(position);
+                ImageItem item = (ImageItem) parent.getItemAtPosition(position); //gedrücktes Item
                 String rapper =  item.getTitle();
                 String idChannel = item.getIdChannel();
                 if(item.getClicked()){
                     item.setUnclicked();
-                    gridAdapter.listChecked.remove(item);
+                    //löscht gesetzer rapper und lädt GridView neu
+                    gridAdapter.listChecked.remove(rapper);
                     gridAdapter.notifyDataSetChanged();
                     db.delete(
                             "rapp",
@@ -97,23 +103,17 @@ public class MainActivity extends LightSensitivActivity{
                             );
                 }else{
                     item.setClicked();
+                    //setzt geklickter rapper in die DB und lädt Grid neu
                     ContentValues werte = new ContentValues();
                     werte.put("Name", rapper);
                     werte.put("idChannel", idChannel);
-
-                    gridAdapter.listChecked.add(item);
+                    gridAdapter.listChecked.add(rapper);
                     gridAdapter.notifyDataSetChanged();
-
                     db.insert(
                             "rapp",
                             null,
                             werte
                     );
-                    String sql = "Select * from rapp";
-                    Cursor c = db.rawQuery(sql,null);
-                    while (c.moveToNext()){
-                        Log.i("Test", c.getString(2));
-                    }
                 }
             }
         });
@@ -135,7 +135,7 @@ public class MainActivity extends LightSensitivActivity{
     }
 
     private void fertig_click(){
-        Intent startMain = new Intent(this, NewsActivity.class);
+        Intent startMain = new Intent(this, TheMain.class);
         startActivity(startMain);
     }
 
@@ -150,8 +150,8 @@ public class MainActivity extends LightSensitivActivity{
     @Override
     protected void onPause()
     {
-        db.close();
         super.onPause();
+        db.close();
     }
 
 

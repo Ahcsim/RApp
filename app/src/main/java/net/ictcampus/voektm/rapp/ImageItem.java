@@ -6,7 +6,7 @@ public class ImageItem {
     private Bitmap image;
     private String title;
     private String idChannel;
-    private boolean click = false;
+    private static boolean click = false;
 
     public ImageItem(Bitmap image, String title, String idChannel) {
         super();
