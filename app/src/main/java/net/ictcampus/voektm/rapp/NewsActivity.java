@@ -24,6 +24,7 @@ import com.google.android.youtube.player.YouTubePlayerView;
 import com.google.api.services.youtube.model.SearchResult;
 import com.google.api.services.youtube.model.SearchResultSnippet;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,7 +38,6 @@ public  class NewsActivity extends YoutubeFailureActivity{
     int pos=0;
     String view;
     public NewsActivity(){
-
     }
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -80,6 +80,7 @@ public  class NewsActivity extends YoutubeFailureActivity{
         YouTubePlayerView yt10 = (YouTubePlayerView) findViewById(R.id.yt10);
         yt10.initialize(DeveloperKey.DEVELOPER_KEY, this);
 */
+
     }
 
     @Override
@@ -101,7 +102,7 @@ public  class NewsActivity extends YoutubeFailureActivity{
         super.onResume();
         String sq = ("Capital Bra");
         Search search = new Search();
-        List<SearchResult> lr = search.searchByString(sq, 10);
+        List<SearchResult> lr = search.searchByString(sq, 11);
         ArrayList<VideoEntry> vE = new ArrayList<VideoEntry>();
         for (SearchResult result : lr) {
             SearchResultSnippet s = result.getSnippet();

@@ -5,12 +5,22 @@ import android.graphics.Bitmap;
 public class ImageItem {
     private Bitmap image;
     private String title;
+    private String idChannel;
     private boolean click = false;
 
-    public ImageItem(Bitmap image, String title) {
+    public ImageItem(Bitmap image, String title, String idChannel) {
         super();
         this.image = image;
         this.title = title;
+        this.idChannel = idChannel;
+    }
+
+    public String getIdChannel() {
+        return idChannel;
+    }
+
+    public void setIdChannel(String idChannel) {
+        this.idChannel = idChannel;
     }
 
     public Bitmap getImage() {

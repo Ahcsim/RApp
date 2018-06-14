@@ -2,6 +2,7 @@ package net.ictcampus.voektm.rapp;
 
 import android.content.Intent;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,11 +14,27 @@ public class TheMain extends Navigation {
     ViewPager viewPager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Boolean isFirstRun = getSharedPreferences("PREFERENCE", MODE_PRIVATE)
+                .getBoolean("isFirstRun", true);
+        if (isFirstRun) {
+            //show auswahl activity
+            startActivity(new Intent(TheMain.this, MainActivity.class));
+        }
+        getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit()
+                .putBoolean("isFirstRun", false).commit();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_the_main);
-        viewPager = findViewById(R.id.viewPager);
+        FloatingActionButton btnSettings = findViewById(R.id.btnSettings);
+        btnSettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btnSettings_Click();
+            }
+        });
+        viewPager = findViewById(R.id.viewPager);/*
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setSelectedItemId(R.id.news);
+        */
         Button btn= findViewById(R.id.button2);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -28,6 +45,11 @@ public class TheMain extends Navigation {
             }
         });
 
+
+    }
+    public void btnSettings_Click(){
+        Intent startSettings = new Intent(this, Settings.class);
+        startActivity(startSettings);
     }
 
 }

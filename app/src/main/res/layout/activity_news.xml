@@ -16,7 +16,7 @@
     <com.google.android.youtube.player.YouTubePlayerView
         android:id="@+id/yt1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"/>
 <!--
     <ScrollView
         android:layout_width="match_parent"

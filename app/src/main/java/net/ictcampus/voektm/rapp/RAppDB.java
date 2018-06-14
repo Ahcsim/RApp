@@ -8,7 +8,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class RAppDB extends SQLiteOpenHelper {
     public static final int DATABASE_VERSION = 2;
     public static final String DATABASE_NAME = "RApp.db";
-
     private static RAppDB instance = null;
 
     private RAppDB(Context context) {
@@ -24,7 +23,7 @@ public class RAppDB extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE rapp (_id INTEGER PRIMARY KEY , Name TEXT)");
+        db.execSQL("CREATE TABLE rapp (_id INTEGER PRIMARY KEY , Name TEXT, idChannel TEXT )");
     }
 
     public void insertdb(SQLiteDatabase db, String insertvalue){
