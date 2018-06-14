@@ -13,7 +13,15 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ListView;
 import android.widget.TextView;
+
+import com.google.api.services.youtube.model.SearchResult;
+import com.google.api.services.youtube.model.SearchResultSnippet;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class AbosActivity extends android.support.v4.app.Fragment {
     public AbosActivity() {

@@ -1,17 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".AbosActivity">
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="news"
         tools:layout_editor_absoluteX="89dp"
         tools:layout_editor_absoluteY="145dp" />
+    <com.google.android.youtube.player.YouTubePlayerView
+        android:id="@+id/yt1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+<!--
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <linearLayout>
+            <com.google.android.youtube.player.YouTubePlayerView
+                android:id="@+id/yt1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </com.google.android.youtube.player.YouTubePlayerView>
+
+            <com.google.android.youtube.player.YouTubePlayerView
+                android:id="@+id/yt8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <com.google.android.youtube.player.YouTubePlayerView
+                android:id="@+id/yt2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </com.google.android.youtube.player.YouTubePlayerView>
+
+            <com.google.android.youtube.player.YouTubePlayerView
+                android:id="@+id/yt6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <com.google.android.youtube.player.YouTubePlayerView
+                android:id="@+id/yt9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </com.google.android.youtube.player.YouTubePlayerView>
+
+            <com.google.android.youtube.player.YouTubePlayerView
+                android:id="@+id/yt3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </com.google.android.youtube.player.YouTubePlayerView>
+
+            <com.google.android.youtube.player.YouTubePlayerView
+                android:id="@+id/yt7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <com.google.android.youtube.player.YouTubePlayerView
+                android:id="@+id/yt4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <com.google.android.youtube.player.YouTubePlayerView
+                android:id="@+id/yt5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <com.google.android.youtube.player.YouTubePlayerView
+                android:id="@+id/yt10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </linearLayout>
+    </ScrollView>-->
 
 
-</FrameLayout>
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="invisible" />
+
+</LinearLayout>

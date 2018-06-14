@@ -15,9 +15,18 @@ public class TheMain extends Navigation {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_the_main);
-        viewPager = findViewById(R.id.viewPager);/*
+        viewPager = findViewById(R.id.viewPager);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
-        navigation.setSelectedItemId(R.id.news);*/
+        navigation.setSelectedItemId(R.id.news);
+        Button btn= findViewById(R.id.button2);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(TheMain.this, NewsActivity.class);
+                TheMain.this.startActivity(myIntent);
+
+            }
+        });
 
     }
 

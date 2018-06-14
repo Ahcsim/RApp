@@ -45,9 +45,9 @@ public class Search{
 
             search.setKey(API_KEY);
             search.setQ(searchString);
-
+search.setChannelId("UCGU9EqK5V5m141sNPCOfRBg");
             search.setType("video");
-
+            search.setOrder("date");
             search.setFields("items(id/kind,id/videoId,snippet/title,snippet/thumbnails/default/url)");
             search.setMaxResults(maxResults);
 
