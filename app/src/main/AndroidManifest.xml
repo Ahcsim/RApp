@@ -32,11 +32,10 @@
             android:name=".Main3Activity"
             android:label="@string/title_activity_main3" />
         <activity android:name=".NewsActivity" />
-        <activity android:name=".TestActivity" />
+
         <activity android:name=".Settings" />
-        <activity android:name=".NewsFragment" />
-        <activity android:name=".SearchFragment" />
-        <activity android:name=".AbosFragment"></activity>
+        <activity android:name=".SearchActivity" />
+        <activity android:name=".AbosActivity"></activity>
     </application>
 
 </manifest>

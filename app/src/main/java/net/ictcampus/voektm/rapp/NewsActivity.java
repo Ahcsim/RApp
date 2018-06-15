@@ -40,7 +40,7 @@ public  class NewsActivity extends YoutubeFailureActivity{
     String id;
     int pos=0;
     SQLiteDatabase db;
-    private String[] namesofrappers = {"Azet","Capital Bra","Farid Bang","Dardan","Kollegah","Kontra K","Miami Yacine","Raf Camora","187","UFO361","Zuna","Luciano","18 Karat","Bushido","Capo","Eno","Nimo"};
+    private String[] namesofrappers = {"Azet","Capital Bra","Farid Bang","Kollegah","Kontra K","Miami Yacine","Raf Camora","187","UFO361","Zuna","Luciano","18 Karat","Bushido","Capo","Eno","Nimo"};
     SQLiteOpenHelper manager;
     private ArrayList<String> channels=new ArrayList<String>();
     String view;
@@ -109,12 +109,18 @@ public  class NewsActivity extends YoutubeFailureActivity{
     @Override
     public void onResume() {
         super.onResume();
-        String sq = ("");
+        String sq = ("b");
         Search search = new Search();
+        /*
         for(int i=0;i<namesofrappers.length;i++){
             channels.add(namesofrappers[i]);
+        }*/
+       String sql = "Select * from rapp";
+        Cursor c = db.rawQuery(sql,null);
+        while (c.moveToNext()){
+            channels.add(c.getString(2));
         }
-        List<SearchResult> lr = search.searchByString(sq, 3,channels);
+        List<SearchResult> lr = search.searchByString(sq, 1,channels);
         ArrayList<VideoEntry> vE = new ArrayList<VideoEntry>();
         for (SearchResult result : lr) {
             SearchResultSnippet s = result.getSnippet();

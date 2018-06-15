@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Properties;
+import java.util.Random;
 
 public class Search{
     private YouTube.Search.List search;
@@ -31,6 +32,7 @@ public class Search{
     private List<SearchResult> searchResultList;
     private ArrayList<String> channels;
     private String channel="";
+    private Random r = new Random();
     public Search(){
 
     }
@@ -45,16 +47,34 @@ public class Search{
             }).setApplicationName("Videos").build();
 
             search = youtube.search().list("id,snippet");
-            Log.e("grösse", String.valueOf(channels.size()));
-            for(int i=0;i<channels.size();i++){
-                channel+=channels.get(i)+"|";
+            if(searchString.equals("b")){
+
+            int rnd=r.nextInt(17-1)-1;
+                channel=channels.get(rnd);
+                Log.e("asdhn",channel);
+                Log.e("asdhui",channel);
+                Log.e("asjdhf",searchString);
+                search.setChannelId(channel);
+                search.setQ("");
+                search.setOrder("date");}
+
+            else if(searchString.equals("a")){
+                for(int i=0;i<channels.size();i++){
+                    channel+=channels.get(i)+"|";
+                }
+                Log.e("asjdhf",channel);
+                search.setQ(channel);
+            }
+            else{
+                search.setQ(searchString);
+                search.setOrder("viewCount");
+
             }
             search.setKey(API_KEY);
-            Log.e("asdhui",channel);
-            search.setQ(channel);
-            //search.setChannelId(channel);
+
+
             search.setType("video");
-            search.setOrder("date");
+
             search.setFields("items(id/kind,id/videoId,snippet/title,snippet/thumbnails/default/url)");
             search.setMaxResults(maxResults);
 
@@ -73,7 +93,6 @@ public class Search{
                     List<SearchResult> searchResultList = list.getItems();
                     setList(searchResultList);
                     }
-                    Log.e("result",list.toString());
                     return "hallo";
                 }/*
                 protected void onPostExecute(SearchListResponse result) {

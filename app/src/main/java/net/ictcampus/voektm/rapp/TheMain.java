@@ -35,15 +35,7 @@ public class TheMain extends Navigation {
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setSelectedItemId(R.id.news);
         */
-        Button btn= findViewById(R.id.button2);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent myIntent = new Intent(TheMain.this, NewsActivity.class);
-                TheMain.this.startActivity(myIntent);
 
-            }
-        });
 
 
     }

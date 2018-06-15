@@ -48,7 +48,7 @@ public  class AbosActivity extends YoutubeFailureActivity{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_news);
+        setContentView(R.layout.activity_abos);
         manager = RAppDB.getInstance(this);
         db = manager.getWritableDatabase();
         /*
@@ -57,7 +57,7 @@ public  class AbosActivity extends YoutubeFailureActivity{
         YouTubePlayerView yt1 = (YouTubePlayerView) findViewById(R.id.(view));
         (view).initialize(DeveloperKey.DEVELOPER_KEY, this);
         }*/
-        YouTubePlayerView yt1 = (YouTubePlayerView) findViewById(R.id.yt1);
+        YouTubePlayerView yt1 = (YouTubePlayerView) findViewById(R.id.yt);
         yt1.initialize(DeveloperKey.DEVELOPER_KEY, this);
 /*
         YouTubePlayerView yt2 = (YouTubePlayerView) findViewById(R.id.yt2);
@@ -108,13 +108,12 @@ public  class AbosActivity extends YoutubeFailureActivity{
     @Override
     public void onResume() {
         super.onResume();
-        String sq = ("");
+        String sq = ("a");
         Search search = new Search();
         String sql = "Select * from rapp";
         Cursor c = db.rawQuery(sql,null);
         while (c.moveToNext()){
             channels.add(c.getString(1));
-            Log.i("Test", c.getString(2));
         }
         List<SearchResult> lr = search.searchByString(sq, 11,channels);
         ArrayList<VideoEntry> vE = new ArrayList<VideoEntry>();
@@ -126,7 +125,7 @@ public  class AbosActivity extends YoutubeFailureActivity{
             vE.add(e);
             System.out.println(s);
             VideoEntryAdapter improvise_overcome_adapt = new VideoEntryAdapter(vE, this);
-            ListView lastvew = (ListView) findViewById(R.id.listView);
+            ListView lastvew = (ListView) findViewById(R.id.list);
             lastvew.setPadding(lastvew.getPaddingLeft(), lastvew.getHeight(), lastvew.getPaddingRight(), 0);
             lastvew.setAdapter(improvise_overcome_adapt);
             lastvew.setOnItemClickListener(new AdapterView.OnItemClickListener() {
